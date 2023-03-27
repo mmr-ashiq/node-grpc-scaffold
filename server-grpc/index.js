@@ -45,7 +45,7 @@ server.addService(TodoService.service, {
 		let todo = todos.filter((todo) => todo.id === todoId);
 
 		if (todo.length > 0) {
-			callback(null, todo[0]);
+			callback(null, todo);
 		} else {
 			callback({
 				code: grpc.status.NOT_FOUND,
