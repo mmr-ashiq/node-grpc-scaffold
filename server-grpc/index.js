@@ -31,12 +31,15 @@ const todos = [
 
 server.addService(TodoService.service, {
 	listTodos: (call, callback) => {
-		callback(null, todos);
+		callback(null, {
+			todos: todos,
+		});
 	},
 	createTodo: (call, callback) => {
 		let incomingTodo = call.request;
 		incomingTodo.id = todos.length + 1;
 		todos.push(incomingTodo);
+		console.log(todos)
 		callback(null, incomingTodo);
 	},
 	getTodo: (call, callback) => {
